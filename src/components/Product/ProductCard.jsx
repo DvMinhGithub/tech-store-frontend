@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { constants } from '@/constants'
 import useCartStore from '@/store/cartStore'
-import { formatMoneyVND, getToken, handleNotification, isManage, removeToken } from '@/utils'
+import { formatMoneyVND, handleNotification, tokenOperations, userRoles } from '@/utils'
 
 function ProductCard({ product }) {
   const { addItemToCart } = useCartStore()
@@ -11,13 +11,13 @@ function ProductCard({ product }) {
   const id = useId()
 
   const handleAddToCart = () => {
-    if (isManage()) {
-      removeToken('token')
+    if (userRoles.isManage()) {
+      tokenOperations.remove()
       navigate('/login')
       return
     }
 
-    if (!getToken()) {
+    if (!tokenOperations.get()) {
       handleNotification(constants.NOTIFICATION_WARNING, { message: 'Bạn cần đăng nhập để mua hàng' })
       return
     }

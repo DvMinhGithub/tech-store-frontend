@@ -7,7 +7,7 @@ import { tokenOperations, userRoles } from '@/utils'
 
 const CustomerLayout = () => {
   if (userRoles.isManage()) {
-    tokenOperations.remove('token')
+    tokenOperations.remove()
     return <Navigate to="/login" />
   }
   return (

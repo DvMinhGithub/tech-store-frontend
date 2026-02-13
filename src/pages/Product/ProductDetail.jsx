@@ -4,11 +4,9 @@ import { useParams } from 'react-router-dom'
 import { constants } from '@/constants'
 import useCartStore from '@/store/cartStore'
 import useProductStore from '@/store/productStore'
-import { formatMoneyVND, getToken, handleNotification } from '@/utils'
+import { formatMoneyVND, handleNotification, tokenOperations } from '@/utils'
 
 import { Flex, Modal, Rate } from 'antd'
-
-import './index.css'
 
 const desc = ['Tệ hại', 'Tồi tệ', 'Bình thường', 'Tốt', 'Tuyệt vời']
 
@@ -93,7 +91,7 @@ function ProductDetail() {
   const [value, setValue] = useState(product?.userRating)
 
   const handleAddToCart = useCallback(() => {
-    if (!getToken()) {
+    if (!tokenOperations.get()) {
       handleNotification(constants.NOTIFICATION_WARNING, { message: 'Bạn cần đăng nhập để mua hàng' })
       return
     }
@@ -123,7 +121,7 @@ function ProductDetail() {
   const handleCancel = useCallback(() => setIsModalOpen(false), [])
 
   const handleOk = useCallback(() => {
-    if (!getToken()) {
+    if (!tokenOperations.get()) {
       handleNotification(constants.NOTIFICATION_WARNING, { message: 'Bạn cần đăng nhập để đánh gias' })
       return
     }

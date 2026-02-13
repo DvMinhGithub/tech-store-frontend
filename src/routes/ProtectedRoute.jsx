@@ -4,7 +4,7 @@ import { tokenOperations } from '@/utils'
 
 const ProtectedRoute = () => {
   const token = tokenOperations.get()
-
+  
   if (token) {
     return <Outlet />
   }

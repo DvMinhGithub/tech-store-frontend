@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import useUserStore from '@/store/userStore'
-import { getToken } from '@/utils'
+import { tokenOperations } from '@/utils'
 
 import { Col, Form, Input, Radio, Row } from 'antd'
 
@@ -119,7 +119,7 @@ const RegisterForm = ({ onSubmit }) => {
 }
 
 const useRedirectIfLoggedIn = () => {
-  const token = getToken()
+  const token = tokenOperations.get()
   const navigate = useNavigate()
 
   useEffect(() => {
