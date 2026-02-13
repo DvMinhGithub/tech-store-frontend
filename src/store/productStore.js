@@ -62,7 +62,7 @@ const useProductStore = create((set, get) => ({
     ),
 
   getProductTopView: () =>
-    get().handleApiCall(productService.getProductTopView, (res) => set({ productsTopView: res.data.list })),
+    get().handleApiCall(productService.getProductTopView, (res) => set({ productsTopView: res.data.data || [] })),
 
   getProductsTopSold: () =>
     get().handleApiCall(productService.getProductsTopSold, (res) => set({ productsTopSold: res.data.list })),

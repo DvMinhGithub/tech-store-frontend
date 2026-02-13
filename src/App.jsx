@@ -13,6 +13,7 @@ const LoginPage = React.lazy(() => import('./pages/LoginPage/Index'))
 const RegisterPage = React.lazy(() => import('./pages/RegisterPage/Index'))
 const CustomerHomePage = React.lazy(() => import('./pages/HomePage/Customer/Homepage'))
 const PageNotFound = React.lazy(() => import('./pages/PageNotFound'))
+const ProductDetail = React.lazy(() => import('./pages/Product/ProductDetail'))
 
 const adminRoutes = [
   { path: routes.auth.homeAdmin, element: React.lazy(() => import('./pages/HomePage/Manage/Homepage')) },
@@ -44,6 +45,7 @@ function App() {
           <Route path={routes.auth.register} element={<RegisterPage />} />
           <Route element={<CustomerLayout />}>
             <Route path={routes.auth.home} element={<CustomerHomePage />} />
+            <Route path={routes.product.detail} element={<ProductDetail />} />
           </Route>
           <Route element={<ProtectedRoute />}>
             <Route element={<AdminLayout />}>

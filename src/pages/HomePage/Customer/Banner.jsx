@@ -1,4 +1,4 @@
-import CustomCarousel from '@/components/Carousel/Carousel'
+import CustomCarousel from '@/components/Common/Carousel/Carousel'
 
 import { SwiperSlide } from 'swiper/react'
 

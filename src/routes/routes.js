@@ -23,7 +23,8 @@ export const routes = {
   product: {
     list: '/admin/product',
     add: '/admin/product/create',
-    edit: '/admin/product/edit/:id'
+    edit: '/admin/product/edit/:id',
+    detail: '/product/detail/:id'
   },
   voucher: {
     list: '/admin/voucher'

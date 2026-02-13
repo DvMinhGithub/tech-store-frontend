@@ -1,15 +1,15 @@
 import { useEffect } from 'react'
 
 import ProductSwiper from '@/components/Product/ProductSwiper'
-import { CustomBanner } from '@/pages/HomePage/CustomerBanner'
-import ShopByCategory from '@/pages/HomePage/ShopByCategory'
+import { CustomBanner } from '@/pages/HomePage/Customer/Banner'
+import ShopByCategory from '@/pages/HomePage/Customer/ShopByCategory'
 import useProductStore from '@/store/productStore'
 
 const HomePage = () => {
-  const { productsTopView, fetchTopViewedProducts } = useProductStore()
+  const { productsTopView, getProductTopView } = useProductStore()
 
   useEffect(() => {
-    fetchTopViewedProducts()
+    getProductTopView()
   }, [])
 
   return (
